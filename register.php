@@ -38,10 +38,6 @@ if(preg_match("/\.php/", $url)) {
     <link href="assets/css/metismenu.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/toaster.min.css" rel="stylesheet" type="text/css" />
-
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/userController.js"></script>
-
 </head>
 
 <body class="account-body">
@@ -142,11 +138,20 @@ if(preg_match("/\.php/", $url)) {
 <!-- End Log In page -->
 
 
+
+<!-- Jquery / Engine -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/userController.js"></script>
+
+<!-- End Jquery / Engine -->
+
 <script src="assets/js/toaster.min.js"></script>
 <script src="assets/js/bootstrap.bundle.min.js"></script>
 <script src="assets/js/metisMenu.min.js"></script>
 <script src="assets/js/waves.min.js"></script>
 <script src="assets/js/jquery.slimscroll.min.js"></script>
+
+
 
 <!-- App js -->
 <script src="assets/js/app.js"></script>
