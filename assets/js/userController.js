@@ -10,10 +10,7 @@ $(document).ready(async () => {
         });
         return ajax;
     }
-    loadCaptcha();
-    getTickets();
-    getPlan();
-    deadAttacks();
+
 
     let validEmail = (email) => {
         var string = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -45,7 +42,7 @@ $(document).ready(async () => {
         return ajax;
     }
 
-    let getTickets = () => {
+    let getTickets = async () => {
         let ajax = await $.ajax('inc/Data/ticketTableData',{
             method: "POST",
             success:(getResp) => {
@@ -56,6 +53,11 @@ $(document).ready(async () => {
         });
         return ajax;
     }
+
+    loadCaptcha();
+    getTickets();
+    getPlan();
+    deadAttacks();
 
     toastr.options = {
         "closeButton": true,
@@ -187,9 +189,8 @@ $(document).ready(async () => {
 
     $(document).on('click', '#logout', async () => {
         toastr["info"]("You're being logged out.", "MCSpam");
-        setTimeout(() => {
-            let ajax = await $.ajax({
-                url: 'inc/Requests/accountRequest',
+        setTimeout(async () => {
+            let ajax = await $.ajax('inc/Requests/accountRequest', {
                 data: {
                     logout: 1
                 },
@@ -205,7 +206,7 @@ $(document).ready(async () => {
         }, 3000);
     });
 
-    $(document).on('click', '#submit', () => {
+    $(document).on('click', '#submit', async () => {
         var subject = $('#subject').val();
         var priority = $('#priority').val();
         var department = $('#department').val();
